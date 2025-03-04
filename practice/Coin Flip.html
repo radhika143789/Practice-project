@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coin Flip</title>
+    </head>
+        <body>
+            <h2>HEAD OR TAIL</h2>
+            <!-- if between 0 to 1/2 => head 
+            if between 1/2 to 1 => tail -->
+            <p>
+                <button onclick="
+                const randomNumber=Math.random();
+                let computerChoice='';
+                
+                randomNumber < 0.5 ? computerChoice='Head':computerChoice='Tails';
+                let result =''; 
+                if(computerChoice==='Head'){
+                    result = 'You Win !';
+                }
+                else{
+                    result = 'You Lose';
+                }
+                alert(result)"
+                >Heads</button>
+                <button onclick=" 
+                randomNumber=Math.random();
+                 computerChoice='';
+                
+                randomNumber < 0.5 ? computerChoice='Head':computerChoice='Tails';
+                 result =''; 
+                if(computerChoice==='Tails'){
+                    result = 'You Win !';
+                }
+                else{
+                    result = 'You Lose';
+                }
+                alert(result)">Tails</button>
+            </p>
+            <script>
+        
+                </script>
+        </body>
+        </html>

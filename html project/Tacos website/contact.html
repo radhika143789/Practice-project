@@ -11,9 +11,14 @@
 
 <body>
     <h1>Contact Us</h1>
-    <a href="home.html">Home</a>
-    <br>
-    <a href="hours.html">Store Hours</a>
+    <nav>
+    <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="hours.html">Store Hours</a></li>
+        <li> <a href="/#about">About <abbr title="Little Taco Shop">LTS</abbr></a></li>
+        <li> <a href="/#menu">Menu</a></li>
+        </ul>
+    </nav>
     <br>
     <figure>
         <img src="tacos_close_up_400x260.png" alt="Tacos close up">
@@ -21,7 +26,7 @@
     </figure>
     <hr>
     <h2>Our Contact Form</h2>
-    <form>
+    <form action="https://httpbin.org/get" method="get">
         <fieldset>
             <legend>Send us message</legend>
             <p>
@@ -35,6 +40,7 @@
             <p>
 
                 <label for="mess">Your Message:</label>
+                <br>
                 <textarea name="Message" id="mess" placeholder="your message" col="30" rows="10"></textarea>
             </p>
 

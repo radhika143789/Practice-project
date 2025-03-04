@@ -1,5 +1,6 @@
 html {
     font-size: 22px;
+    animation: backg 2s ease-in-out 2s infinite alternate;
 }
 
 body {
@@ -16,4 +17,6 @@ th, td, caption {
     font-family: 'Courier New', Courier, monospace;
     border-collapse: separate;
     padding: 0.5rem;
+
 }
+ 
