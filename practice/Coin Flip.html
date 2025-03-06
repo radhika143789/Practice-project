@@ -11,34 +11,52 @@
             if between 1/2 to 1 => tail -->
             <p>
                 <button onclick="
-                const randomNumber=Math.random();
-                let computerChoice='';
-                
-                randomNumber < 0.5 ? computerChoice='Head':computerChoice='Tails';
-                let result =''; 
-                if(computerChoice==='Head'){
-                    result = 'You Win !';
-                }
-                else{
-                    result = 'You Lose';
-                }
-                alert(result)"
+                     playGame('Head')"
                 >Heads</button>
-                <button onclick=" 
-                randomNumber=Math.random();
-                 computerChoice='';
+                <button onclick="playGame('Tails')">Tails</button>
+                <button onclick=" Score.wins =0;
+                Score.loses=0;
+                Score.ties =0; ">Reset Score</button>
+            </p>
+            <script> 
+            const Score = JSON.parse(localStorage.getItem('Score'))||{
+                wins :0,
+                loses :0
+            };
+
                 
-                randomNumber < 0.5 ? computerChoice='Head':computerChoice='Tails';
-                 result =''; 
-                if(computerChoice==='Tails'){
-                    result = 'You Win !';
+                function computerChoice(){ 
+                    randomNumber=Math.random();
+                    
+                    randomNumber < 0.5 ? computerchoice ='Head': computerchoice='Tails';
+                    return computerchoice;
+
+                }
+                function playGame(playerMove){
+                    result ='';
+                    computerchoice = computerChoice();
+                if(playerMove===computerchoice){
+                    result = 'You Win';
                 }
                 else{
                     result = 'You Lose';
                 }
-                alert(result)">Tails</button>
-            </p>
-            <script>
+                
+                if(result === 'You Win'){
+                    Score.wins +=1;
+                }
+                    else {
+                    Score.loses +=1;
+                }
+                localStorage.setItem('Score',JSON.stringify(Score));
+                alert(`You pick ${playerMove} And computer pickes ${computerchoice}. 
+                ${result}
+                Wins: ${Score.wins}
+                Loses: ${Score.loses}`);
+                
+                }
+               
+
         
                 </script>
         </body>
