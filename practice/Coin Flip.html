@@ -14,6 +14,8 @@
                      playGame('Head')"
                 >Heads</button>
                 <button onclick="playGame('Tails')">Tails</button>
+                <p class ="show-move"></p>
+                <p class = "Result"></p>
                 <button onclick=" Score.wins =0;
                 Score.loses=0;
                 Score.ties =0; ">Reset Score</button>
@@ -48,11 +50,11 @@
                     else {
                     Score.loses +=1;
                 }
-                localStorage.setItem('Score',JSON.stringify(Score));
-                alert(`You pick ${playerMove} And computer pickes ${computerchoice}. 
-                ${result}
+                localStorage.setItem('Score',JSON.stringify(Score)); 
+                document.querySelector('.show-move').innerHTML=`You pick ${playerMove} And computer pickes ${computerchoice}`;
+              document.querySelector('.Result').innerHTML=`${result}
                 Wins: ${Score.wins}
-                Loses: ${Score.loses}`);
+                Loses: ${Score.loses}`;
                 
                 }
                

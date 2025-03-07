@@ -6,10 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom</title>
+    <style>
+        .js-subscribe {
+            background-color: black;
+            color:white;
+            padding: 10px;
+            border-radius: 18px;
+
+        }
+        .js-subscribe:hover{
+            background-color: rgb(196, 195, 195);
+            color:black;
+            transition: linear;
+        }
+    </style>
 </head>
 
 <body>
-    <p> Youtube Subscribe Button</p>
+    <p > Youtube Subscribe Button</p>
     <button class ="js-subscribe" onclick=" subscribe();
     ">Subscribe</button>
     <p>Amazon Shipping Calcculator</p>   
@@ -27,9 +41,11 @@
     }
     function calculateTotal(){
          const inputElement= document.querySelector('.js-input');
-         let cost = Number(inputElement.value);//type coertion
+         let cost = parseFloat(inputElement.value);//type coertion
          if(cost < 40){
             cost = cost+10;
+
+           
 
          }
          document.querySelector('.js-total').innerHTML=`Total Cost = ${cost}`;

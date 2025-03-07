@@ -23,10 +23,31 @@
     <button onclick="updateCartQuantity(-3);">-3</button>
     <button onclick="cartquantity=0;
     console.log('Cart Quantity was reset');
-    console.log(`Cart Quantity :${cartquantity}`);">Reset Cart</button> -->
+    console.log(`Cart Quantity :${cartquantity}`);">Reset Cart</button> --> 
+     <input class ="name" placeholder="Message" onkeyup="handlekeys(event)"; 
+     
+     onkeydown="handlekeys(event)">
+    <button onclick="submission()">Submit</button>
+    <p class ="display"></p> 
     
     <script>
-        // let cartquantity = 0;
+        function handlekeys(event){
+          if(event.key ==='Enter'){
+            submison();
+          }
+          else{
+            const name = document.querySelector('.name');
+            document.querySelector('.display').innerHTML = name.value; // Update display with input value
+
+          }
+
+        }
+        function submison(){
+            const name = document.querySelector('.name');
+             let Print_name = name.value;
+             document.querySelector('.display').innerHTML=`Your Name = ${Print_name}`;
+        }
+        
         // function updateCartQuantity(quantity){
         //     if(cartquantity>=0 && cartquantity<=10){
         // cartquantity +=quantity; 
