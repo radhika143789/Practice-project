@@ -6,30 +6,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom</title>
-    <style>
-        .js-subscribe {
+    <style> 
+     body{
+            font-family: Arial;
+            margin-bottom: 40px;
+        }
+        .subscribe-button { 
+            border:none;
             background-color: black;
             color:white;
-            padding: 10px;
-            border-radius: 18px;
+            padding: 10px 15px 10px 15px;
+            border-radius: 50px;
+            font-weight:bold;
+            cursor:pointer;
 
         }
-        .js-subscribe:hover{
-            background-color: rgb(196, 195, 195);
+        .is-subscribed{
+            background-color: rgb(240, 240, 240);
             color:black;
             transition: linear;
+            font-family: Arial, Helvetica, sans-serif;
         }
+       .cost-input{
+        font-size: 15px;
+        padding:10px
+       }
+       .calculate{ 
+        border:none;
+        padding: 12px 15px;
+        background-color: green;
+        color: white;
+        font-size: 15px;
+        cursor : pointer;
+       }
+         
     </style>
 </head>
 
 <body>
     <p > Youtube Subscribe Button</p>
-    <button class ="js-subscribe" onclick=" subscribe();
+    <button class ="js-subscribe subscribe-button" onclick=" subscribe();
     ">Subscribe</button>
     <p>Amazon Shipping Calcculator</p>   
-    <input placeholder ="Cost of order" class="js-input" onkeydown=" handleKeydown(event)
+    <input placeholder ="Cost of order" class="js-input cost-input" onkeydown=" handleKeydown(event)
 ">
-    <button onclick="
+    <button class="calculate" onclick="
     calculateTotal()"> Calculate</button>
     <p class="js-total"></p>
     
@@ -56,14 +77,16 @@
 
     if(buttonElement.innerHTML==='Subscribe'){
         buttonElement.innerHTML ='Subscribed';
+        buttonElement.classList.add('is-subscribed');
     }
     else{
-        buttonElement.innerHTML ='Subscribe';
+        buttonElement.innerHTML ='Subscribe'; 
+        buttonElement.classList.remove('is-subscribed');
     }
 
     }
     </script>
-
+ <a href="./rock-paper-scissor.html">Rock-Paper-Scissor </a>
 </body>
 
 </html>

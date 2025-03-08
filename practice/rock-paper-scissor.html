@@ -5,34 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor</title>
+    <style>
+        body{
+            background-color: rgb(25,25, 25);
+            color : white; 
+            font-family: Arial;
+        }
+        .title{
+            font-size:30px;
+            font-weight:bold;
+            margin-top:50px;
+        } 
+        .move-icon{
+            height : 50px;
+        } 
+        .move-button{
+            background-color:transparent; 
+            width:120px;
+            height:120px;
+            border :3px solid white;
+            border-radius: 60px;
+            margin-right:10px;
+            cursor:pointer;
+        }
+        .result{
+            font-size:25px;
+            font-weight:bold;
+            margin-top:50px;
+        }
+        .score{
+            margin-top:60px;
+        }
+        .reset-score{
+            background-color:white;
+            border:none;
+            font-size:15px;
+            padding:8px 15px;
+            cursor:pointer;
+        }
+    </style>
 </head>
 
 <body>
     <!-- between 0 and 1/3 its a Rock
      between 1/3 and 2/3 its a paper
      between 2/3 and 1 its a scissor -->
-    <h2>Rock Paper Scissors</h2>
+    <p class="title">Rock Paper Scissors</p>
     <p>
-        <button onclick=" 
+        <button  onclick=" 
            
-       playGame('rock');
+       playGame('Rock');
        
-        ">Rock</button>
+        " class="move-button"><img src="../practice/rock-paper-scissors-Images/Rock.png" alt="Rock" class="move-icon"></button>
 
 
         <button onclick="
-          playGame('paper');
-          ">Paper</button>
+          playGame('Paper');
+          " class="move-button"><img src="../practice/rock-paper-scissors-Images/Paper.png" alt="Paper" class="move-icon"></button>
 
         <button onclick="
-        
-          playGame('scissors');
-         
-            ">Scissors</button>
-            <p class ="js-score"></p> 
+        playGame('Scissor');
+          " class="move-button"><img src="../practice/rock-paper-scissors-Images/Scissor.png" alt="Scissor" class="move-icon"></button>
+          <p class ="js-result result"></p>
+            <p class ="js-score score"></p> 
             <p class="js-move"></p>
-            <p class ="js-result"></p>
-            <button onclick ="
+            
+            <button class="reset-score" onclick ="
             Score.wins =0;
             Score.loses=0;
             Score.ties =0; 
@@ -64,14 +102,14 @@
                  
                 const randomNumber=Math.random(); 
                 if(randomNumber>=0 && randomNumber<(1/3)){
-                    computerMove='rock';
+                    computerMove='Rock';
                     
                 }
                 else if(randomNumber>=(1/3)&&randomNumber<(2/3)){
-                    computerMove='paper';
+                    computerMove='Paper';
                 }
                 else if(randomNumber>=2/3&&randomNumber<1){
-                    computerMove='scissors';
+                    computerMove='Scissor';
 
                 } 
                 return computerMove;
@@ -81,12 +119,12 @@
         function playGame(playerMove){
         computerMove = pickComputerMove();
             result='';
-        if(playerMove==='scissors')
+        if(playerMove==='Scissor')
         {
-                if(computerMove ==='rock'){
+                if(computerMove ==='Rock'){
                  result='You Lose';
             }
-                else if(computerMove==='paper'){
+                else if(computerMove==='Paper'){
                  result='You Win';
             }
                 else {
@@ -94,12 +132,12 @@
             }
             
         }
-        else if (playerMove==='rock'){
+        else if (playerMove==='Rock'){
                 
-            if(computerMove ==='rock'){
+            if(computerMove ==='Rock'){
             result='Tie';
             }
-            else if(computerMove==='paper'){
+            else if(computerMove==='Paper'){
             result='You Lose';
             }
             else {
@@ -107,12 +145,12 @@
             }
             
             }
-            else if(playerMove==='paper'){
+            else if(playerMove==='Paper'){
                 
-            if(computerMove ==='rock'){
+            if(computerMove ==='Rock'){
             result='You Win';
             }
-            else if(computerMove==='paper'){
+            else if(computerMove==='Paper'){
             result='Tie';
             }
             else {
@@ -134,7 +172,7 @@
         localStorage.setItem('score',JSON.stringify(Score)); 
         updateScore();
         document.querySelector('.js-result').innerHTML=result;
-         document.querySelector('.js-move').innerHTML=`You picked ${playerMove}-Computer picked ${computerMove}`;
+         document.querySelector('.js-move').innerHTML=`You <img src="../practice/rock-paper-scissors-Images/${playerMove}.png" class="move-icon"> Computer <img src="../practice/rock-paper-scissors-Images/${computerMove}.png" class="move-icon">`;
         
     } 
     function updateScore(){
