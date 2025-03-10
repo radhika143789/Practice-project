@@ -4,155 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cart</title>
+    <style> 
+        body{
+            background-color: black;
+            color: white;
+            font-size:30px;
+            font-family:Arial;
+            }
+        button{
+            background-color:rgb(255, 255, 20);
+            padding: 20px;
+            margin:10px;
+            cursor:pointer;
+            border-radius: 50px;
+            border: none;
+            font-family: Arial;
+            font-weight:bold;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- <button onclick="console.log(`Cart Quantity :${cartquantity}`);">Show Quantity</button>
     
     <button onclick="updateCartQuantity(1);">Add to Cart</button>
-    <button onclick="updateCartQuantity(2);">+2</button>
+    <button  onclick="updateCartQuantity(2);">+2</button>
     <button onclick="updateCartQuantity(3);">+3</button>
-    <button onclick="updateCartQuantity(4);">+4</button>
-    <button onclick="updateCartQuantity(5);">+5</button>
+    <button 
+    onclick="updateCartQuantity(4);">+4</button>
+    <button  onclick="updateCartQuantity(5);">+5</button>
 
 
-    <button onclick="updateCartQuantity(-1); " > Remove From Cart</button>
-    <button onclick="
+    <button  onclick="updateCartQuantity(-1); " > Remove From Cart</button>
+    <button " onclick="
      updateCartQuantity(-2);">-2</button>
-    <button onclick="updateCartQuantity(-3);">-3</button>
-    <button onclick="cartquantity=0;
+    <button  onclick="updateCartQuantity(-3);">-3</button>
+    <button  onclick="cartquantity=0;
     console.log('Cart Quantity was reset');
-    console.log(`Cart Quantity :${cartquantity}`);">Reset Cart</button> --> 
-     <input class ="name" placeholder="Message" onkeyup="handlekeys(event)"; 
-     
-     onkeydown="handlekeys(event)">
-    <button onclick="submission()">Submit</button>
-    <p class ="display"></p> 
-    
+    console.log(`Cart Quantity :${cartquantity}`);">Reset Cart</button> 
+    <p class="js-display"></p>
     <script>
-        function handlekeys(event){
-          if(event.key ==='Enter'){
-            submison();
-          }
-          else{
-            const name = document.querySelector('.name');
-            document.querySelector('.display').innerHTML = name.value; // Update display with input value
+        let cartquantity = 0;
+         function updateCartQuantity(quantity){
+             if(cartquantity>=0 && cartquantity<=10){
+         cartquantity +=quantity; 
 
-          }
-
-        }
-        function submison(){
-            const name = document.querySelector('.name');
-             let Print_name = name.value;
-             document.querySelector('.display').innerHTML=`Your Name = ${Print_name}`;
-        }
+         }                                                                 
+         else if(cartquantity<=0){
+             cartquantity=0;
+             alert('Not enough item in the cart');
+         }
         
-        // function updateCartQuantity(quantity){
-        //     if(cartquantity>=0 && cartquantity<=10){
-        // cartquantity +=quantity; 
+         else if(cartquantity>=10){
+             cartquantity=10;
+             alert('Cart is full');
+         }
+         document.querySelector(".js-display").innerHTML=`Cart Quantity:${cartquantity}`;
 
-        // }                                                                 
-        // else if(cartquantity<=0){
-        //     cartquantity=0;
-        //     alert('Not enough item in the cart');
-        // }
-        
-        // else if(cartquantity>=10){
-        //     cartquantity=10;
-        //     alert('Cart is full');
-        // }
-        // console.log(`Cart Quantity:${cartquantity}`);
-
-        // }
-        
-    //     function convertTofahrenheit(celsius){
-    //          let fahrenheit=(celsius*9/5)+32;
-    //           return fahrenheit;
-    //    }
-    //    function convertToCelsius(fahrenheit){
-    //          let Celsius =( fahrenheit-32)*5/9;
-    //           return Celsius;
-    //    }
-       
-    //    function convertTemperature(degree,unit){
-    //     let result='';
-    //     if(unit==='C'){
-    //         result=convertTofahrenheit(degree)+'F';
-            
-    //     }
-    //     else{
-    //         result=convertToCelsius(degree)+'C';
-    //     }
-    //     return result;
-    //    }
-    //    console.log(convertTemperature(86,'F'));
-    // function convertLength(length,from,to){
-    //     let result='';
-    //     let convert =undefined;
-        
-    //     if(from==='miles'&& to==='km'){
-    //      convert  =length*1.6;
-    //      result=convert+to;
-    //     }
-    //     else if(from==='km'&& to==='miles'){
-    //         convert  =length/1.6;
-    //         result=convert+to;
-    //     }
-    //     else if(from==='miles'&& to==='ft'){
-    //         convert  =length*5280;
-    //         result=convert+to;
-    //     }
-    //     else if(from==='km'&& to==='ft'){
-    //         convert  =length*3281;
-    //         result=convert+to;
-    //     }
-    //     else if(from==='ft'&& to==='miles'){
-    //         convert  =length/5280;
-    //         result=convert+to;
-    //     }
-    //     else if(from==='ft'&& to==='km'){
-    //         convert  =length/3281;
-    //         result=convert+to;
-    //     }
-    //     else if (from !='km'||from!='ft'||from !='miles'){
-    //         return `invaid unit${from} `;
-    //     }
-    //     else if(from===to){
-    //         result=length+ to;
-    //     }
-        
-    //     return result;
-    // }
-    // console.log(convertLength(5,'miles','km'));
-    // console.log(convertLength(5,'miles','ft'));
-    // console.log(convertLength(5,'km','ft'));
-    // console.log(convertLength(5,'ft','km'));
-    // console.log(convertLength(32,'lbs','lbs'));
-    // const product1 ={
-    //     name : 'basketball',
-    //     price: 2095
-    // };
-    // const product2 ={
-    //     name:'meta ball',
-    //     price: 290
-    // };
-    // function sameProduct(){
-    //   if(product1.name === product2.name &&product1.price === product2.true){
-    //      return true;
-    //   }
-    //   else{
-    //     return false;
-    //   }
-
-    // }
-    // console.log(sameProduct( ));
-    
-   
-    
-    
-
-         
+         }   
     </script>
 </body>
 

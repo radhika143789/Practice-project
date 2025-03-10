@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang ='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coin Flip</title>
+        <link rel="stylesheet" href="coin-flip.css">
+    </head>
+        <body>
+            <h2>HEAD OR TAIL</h2>
+            <!-- if between 0 to 1/2 => head 
+            if between 1/2 to 1 => tail -->
+            <p>
+                <button class="icons" onclick="
+                 playGame('Head')"
+                ><img src="./images/head.png" alt="head" class="icon-pic" ></button>
+                <button class="icons"onclick="playGame('Tails')"><img src="./images/tail.png" alt="tail" class="icon-pic"></button>
+                <p class ="show-move"></p>
+                
+                <p class = "Result"></p>
+
+            <button class="reset-button" onclick="resetScore()">Reset Score</button>
+
+            </p>
+            <script src="coin-flip.js"> </script>
+        </body>
+        </html>
