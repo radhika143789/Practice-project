@@ -39,6 +39,9 @@
         font-size: 15px;
         cursor : pointer;
        }
+       .error{
+        color:red;
+       }
          
     </style>
 </head>
@@ -52,7 +55,8 @@
 ">
     <button class="calculate" onclick="
     calculateTotal()"> Calculate</button>
-    <p class="js-total"></p>
+    
+    <p class="js-total error"></p>
     
     <script> 
     function handleKeydown(event){
@@ -63,13 +67,26 @@
     function calculateTotal(){
          const inputElement= document.querySelector('.js-input');
          let cost = parseFloat(inputElement.value);//type coertion
-         if(cost < 40){
-            cost = cost+10;
-
-           
+         let e = document.querySelector('.js-total');
+         if(cost<0){
+            
+            e.innerHTML=`Error: cost cannot be less tham $0`;
+            e.classList.add('error');
 
          }
-         document.querySelector('.js-total').innerHTML=`Total Cost = ${cost}`;
+         else if(cost < 40){
+            cost = cost+10;
+            e.innerHTML=`Total Cost = ${cost}`;
+            e.classList.remove('error');
+         }
+         else{
+            e.innerHTML=`Total Cost = ${cost}`;
+            e.classList.remove('error');
+         }
+        
+        
+      
+        
 
     }
     function subscribe(){

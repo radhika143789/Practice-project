@@ -5,9 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice</title>
+    <style>
+        button{
+            background-color: black;
+            color:white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-family:Arial;
+            font-weight:bold;
+            cursor: pointer;
+        }
+        .css{
+            background-color:rgb(230,230,230);
+            color:black;
+        }
+        
+    </style>
   
 </head>
 
 <body>
+    
+    <button onclick="uberRide()" class="js-display css">Request now</button>
+    <button onclick="Game()" class="js-button css">Game</button>
+    <button onclick="toddle()" class="js-toddle  css">Gaming</button>
+    <button onclick="toddle()" class="js-toddle  css">Music</button>
+    <button onclick="toddle()" class="js-toddle  css">Tech</button>
+    <script>
+       function Game()
+       { let c = document.querySelector('.js-button');
+        if(c.innerHTML==="Game"){
+            c.innerHTML ="Gaming";
+            c.classList.add('css');
+         }
+         else{
+            c.innerHTML="Game";
+            c.classList.remove('css');
+
+         }
+        }
+        function uberRide()
+        { 
+            let buttonElement=document.querySelector('.js-display');
+        if(buttonElement.innerHTML==="Request now"){
+            buttonElement.innerHTML ="Schedule for Later"
+            buttonElement.classList.add('css');
+        }
+        else{
+             buttonElement.innerHTML ="Request now";
+             buttonElement.classList.remove('css');
+        }}
+function toddle(event) {
+    // Get all buttons with the class 'js-toddle'
+    const buttons = document.querySelectorAll('.js-toddle');
+    
+    // Remove the 'css' class from all buttons
+    buttons.forEach(button => {
+        button.classList.remove('css');
+    });
+
+    // Add the 'css' class to the clicked button
+    event.target.classList.add('css');
+}
+
+          
+        
+        </script>
     </body>
     </html>

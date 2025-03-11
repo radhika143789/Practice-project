@@ -5,7 +5,7 @@ const Score = JSON.parse(localStorage.getItem('Score')) || {
 
 function computerChoice() { 
     randomNumber = Math.random();
-    randomNumber < 0.5 ? computerchoice = 'Head' : computerchoice = 'Tails';
+    randomNumber < 0.5 ? computerchoice ='head' : computerchoice ='tail';
     return computerchoice;
 }
 
@@ -24,7 +24,7 @@ function playGame(playerMove) {
         Score.loses += 1;
     }
     localStorage.setItem('Score', JSON.stringify(Score)); 
-    document.querySelector('.show-move').innerHTML = `You pick ${playerMove} And computer picks ${computerchoice}`;
+    document.querySelector('.show-move').innerHTML = `You pick <img src="./images/${playerMove}.png" class="icon-pic"> computer picks <img src="./images/${computerchoice}.png"class="icon-pic" >`;
     document.querySelector('.Result').innerHTML = `${result}; Wins: ${Score.wins} Loses: ${Score.loses}`;
 }
 
