@@ -28,8 +28,21 @@ function pickComputerMove()
     } 
     return computerMove;
 }
+let isAutoPlay = false;
+let intervalID;
+function autoplay(){ 
+ if(!isAutoPlay)
+   {  intervalID= setInterval(function(){
+        const playerMove = pickComputerMove();
+    playGame(playerMove);
+    },1000);
+    isAutoPlay=true;
 
-
+    }else{
+     clearInterval(intervalID);
+     isAutoPlay=false;
+    }
+}
 function playGame(playerMove){
 computerMove = pickComputerMove();
 result='';
